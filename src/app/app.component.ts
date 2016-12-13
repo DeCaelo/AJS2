@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Item } from './models/item';
+import { Config } from './config';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,8 @@ export class AppComponent {
   private newItem: Item;
 
   constructor() {
-    this.title = 'Delivery App';
-    this.version = '1.0';
+    this.title = Config.APP_TITLE;
+    this.version = Config.APP_VERSION;
     this.collection = [
       new Item({reference: '1234', name: 'anton', state: 0}),
       new Item({reference: '5678', name: 'levon', state: 1}),
