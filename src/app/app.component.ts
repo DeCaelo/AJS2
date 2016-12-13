@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Item } from './models/item';
 
 @Component({
   selector: 'app-root',
@@ -8,23 +9,23 @@ import { Component } from '@angular/core';
 export class AppComponent {
   private title: string;
   private version: string;
-  private collection: [any];
-  private newItem: {reference:string, name:string, state:number};
+  private collection: [Item];
+  private newItem: Item;
 
   constructor() {
     this.title = 'Delivery App';
     this.version = '1.0';
     this.collection = [
-      {reference: '1234', name: 'anton', state: 0},
-      {reference: '5678', name: 'levon', state: 1},
-      {reference: '9012', name: 'dor', state: 2}
+      new Item({reference: '1234', name: 'anton', state: 0}),
+      new Item({reference: '5678', name: 'levon', state: 1}),
+      new Item({reference: '9012', name: 'dor', state: 2})
     ]
 
     this.resetNewItem();
   }
 //reset input
   resetNewItem(){
-    this.newItem = {reference: '', name: '', state: 0};
+    this.newItem = new Item({reference: '', name: '', state: 0});
   }
 
   getDetails(event: Event) {
