@@ -2,10 +2,16 @@
   {{title}}
 </h1>
 <p>{{version}}</p>
+<input [(ngModel)]="newItem.reference" />
+<input [(ngModel)]="newItem.name" />
+<input [(ngModel)]="newItem.state" />
+<button (click)="createObject()">Add object</button>
 
 <div *ngFor="let item of collection">
   Reference: {{ item.reference }} |
   Client name : {{ item.name }}
+
+  <a href (click)="getDetails($event)" id="{{ item.reference }}">details</a>
 
   <p class="state-0" *ngIf="0 == item.state">to be delivered</p>
   <p class="state-1" *ngIf="1 == item.state">currently being delivered</p>
