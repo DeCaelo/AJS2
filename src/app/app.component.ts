@@ -14,9 +14,9 @@ export class AppComponent {
     this.title = 'Delivery App';
     this.version = '1.0';
     this.collection = [
-      {reference: '1234', name: 'anton'},
-      {reference: '5678', name: 'levon'},
-      {reference: '9012', name: 'dor'}
+      {reference: '1234', name: 'anton', state: 0},
+      {reference: '5678', name: 'levon', state: 1},
+      {reference: '9012', name: 'dor', state: 2}
     ]
   }
 }
