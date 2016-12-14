@@ -11,30 +11,18 @@ export class AppComponent {
   private title: string;
   private version: string;
   private collection: [Item];
-  private newItem: Item;
 
   constructor() {
     this.title = Config.APP_TITLE;
     this.version = Config.APP_VERSION;
-    this.collection = [
-      new Item({reference: '1234', name: 'anton', state: 0}),
-      new Item({reference: '5678', name: 'levon', state: 1}),
-      new Item({reference: '9012', name: 'dor', state: 2})
-    ]
-
-    this.resetNewItem();
-  }
-//reset input
-  resetNewItem(){
-    this.newItem = new Item({reference: '', name: '', state: 0});
+    this.collection = Config.FAKE_COLLECTION;
   }
 
   onGetDetails(item) {
      console.log(item);
   }
 
-  createObject() {
-    this.collection.push(this.newItem);
-    this.resetNewItem();
+  onCreateItem(item) {
+    this.collection.push(item);
   }
 }
