@@ -1,9 +1,17 @@
-<p>Reference: {{ item.reference }} |
-  Client name : {{ item.name }}</p>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="text-left">Reference : {{ item.reference }}</span>
+        <span class="state-0 pull-right" *ngIf="0 == item.state">A livrer</span>
+        <span class="state-1 pull-right" *ngIf="1 == item.state">En cours de livraison</span>
+        <span class="state-2 pull-right" *ngIf="2 == item.state">Commande livrée</span>
+    </div>
+    <div class="panel-body">
+        <p>Nom du client : {{ item.name | uppercase }}</p>
 
-  <a href (click)="getDetails($event)" id="{{ item.reference }}">details</a>
-
-  <p class="state-0" *ngIf="0 == item.state">to be delivered</p>
-  <p class="state-1" *ngIf="1 == item.state">currently being delivered</p>
-  <p class="state-2" *ngIf="2 == item.state">delivered</p>
-  <hr/>
+        <div *ngIf="2 !== item.state">
+            Changer le statut : <a href (click)="changeState($event, 1)" *ngIf="2 !== item.state && 1 !== item.state" data-id="{{ item.reference }}">En cours de livraison</a>
+            <span *ngIf="2 !== item.state && 1 !== item.state">/</span>
+            <a href (click)="changeState($event, 2)" *ngIf="2 !== item.state" data-id="{{ item.reference }}">livrée</a>
+        </div>
+    </div>
+</div>

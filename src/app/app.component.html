@@ -1,10 +1,15 @@
-<h1>
-  {{title}}
-</h1>
-<p>{{version}}</p>
-<input #listFilter (keyup)="0" />
-<item-form (onCreateItem)="onCreateItem($event)"></item-form>
+<div class="container">
+  <h1 class="text-center">{{ title }}</h1>
+  <hr />
 
-<div *ngFor="let item of collection | itemFilter:listFilter.value">
-  <item [item]="item" (onGetDetails)="onGetDetails($event)"></item>
+  <div class="search">
+      Filtrer la liste : <input #listFilter (keyup)="0" />
+      <hr />
+  </div>
+
+  <item-form (onCreateItem)="onCreateItem($event)"></item-form>
+
+  <div *ngFor="let item of collection | itemFilter:listFilter.value">
+      <item [item]="item" (onGetDetails)="onGetDetails($event)"></item>
+  </div>
 </div>
