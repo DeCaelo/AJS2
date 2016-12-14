@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Item as ItemModel } from './models/item'
 
 @Component({
@@ -7,4 +7,11 @@ import { Item as ItemModel } from './models/item'
 })
 export class Item {
   @Input() item: ItemModel;
+  @Output() onGetDetails = new EventEmitter();
+
+  getDetails(event: Event) {
+     event.preventDefault();
+
+     this.onGetDetails.emit(this.item);
+  }
 }

@@ -29,9 +29,8 @@ export class AppComponent {
     this.newItem = new Item({reference: '', name: '', state: 0});
   }
 
-  getDetails(event: Event) {
-     event.preventDefault();
-     let element = event.target || event.srcElement || event.currentTarget;
+  onGetDetails(item) {
+     console.log(item);
   }
 
   createObject() {

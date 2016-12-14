@@ -11,5 +11,5 @@
 </form>
 
 <div *ngFor="let item of collection">
-  <item [item]="item"></item>
+  <item [item]="item" (onGetDetails)="onGetDetails($event)"></item>
 </div>
