@@ -2,8 +2,9 @@
   {{title}}
 </h1>
 <p>{{version}}</p>
+<input #listFilter (keyup)="0" />
 <item-form (onCreateItem)="onCreateItem($event)"></item-form>
 
-<div *ngFor="let item of collection">
+<div *ngFor="let item of collection | itemFilter:listFilter.value">
   <item [item]="item" (onGetDetails)="onGetDetails($event)"></item>
 </div>

@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { Item as ItemComponent } from './item'
 import { ItemForm } from './item.form'
+import { ItemPipe } from './pipes/item.filter'
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
-    ItemForm
+    ItemForm,
+    ItemPipe
   ],
   imports: [
     BrowserModule,
