@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default" (click)="item.toggleAnimateState()">
     <div class="panel-heading">
         <span class="text-left badge">Reference : {{ item.reference }}</span>
         <span class="state-0 pull-right label label-danger" *ngIf="0 == item.state">A livrer</span>
