@@ -6,6 +6,19 @@ import { Item as ItemModel } from './models/item'
   templateUrl: './item.html',
   styleUrls: [
         './app.component.css'
+   ],
+   animations: [
+        trigger('itemAnimationState', [
+            state('inactive', style({ color: 'red' })),
+            state('active', style({ color: 'blue' })),
+            transition('void => *', [
+                  style({transform: 'translateX(-100%)'}),
+                  animate(1000)
+              ]),
+            transition('* => void', [
+                  animate(1000, style({transform: 'translateX(100%)'}))
+              ])
+        ])
     ]
 })
 export class Item {

@@ -19,6 +19,10 @@ export class AppComponent {
   }
 
   onCreateItem(item: Item) {
-    this.collection.push(item);
+    this.collection.unshift(item);
+
+    setTimeout(() => {
+        item.animateState = 'removed';
+    }, 2000);
   }
 }
