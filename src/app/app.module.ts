@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { TitleModule } from './title/title.module';
+
 import { AppComponent } from './app.component';
 import { Item as ItemComponent } from './item'
 import { ItemForm } from './item.form'
@@ -18,7 +20,8 @@ import { ItemPipe } from './pipes/item.filter'
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    TitleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
