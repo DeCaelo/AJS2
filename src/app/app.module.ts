@@ -9,7 +9,8 @@ import { AppComponent } from './app.component';
 import { Item as ItemComponent } from './item'
 import { ItemForm } from './item.form'
 import { ItemPipe } from './pipes/item.filter'
-import {HighlightDirective} from './directives/highlight.directive';
+import { HighlightDirective } from './directives/highlight.directive';
+import { StateDirective } from './directives/state.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {HighlightDirective} from './directives/highlight.directive';
     ItemComponent,
     ItemForm,
     ItemPipe,
-    HighlightDirective
+    HighlightDirective,
+    StateDirective
   ],
   imports: [
     BrowserModule,

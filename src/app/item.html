@@ -1,9 +1,7 @@
 <div class="panel panel-default" *ngIf="item.animateState !== 'removed'" [@itemAnimationState]="item.animateState" (click)="item.toggleAnimateState()">
     <div class="panel-heading">
         <span class="text-left badge">Reference : {{ item.reference }}</span>
-        <span class="state-0 pull-right label label-danger" *ngIf="0 == item.state">A livrer</span>
-        <span class="state-1 pull-right label label-info" *ngIf="1 == item.state">En cours de livraison</span>
-        <span class="state-2 pull-right label label-success" *ngIf="2 == item.state">Commande livrée</span>
+        <span class="pull-right" [state]="item.state"></span>
     </div>
     <div class="panel-body">
         <p>Nom du client : <span Highlight>{{ item.name | uppercase }}</span></p>
