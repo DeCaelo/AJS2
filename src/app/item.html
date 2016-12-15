@@ -6,7 +6,7 @@
         <span class="state-2 pull-right label label-success" *ngIf="2 == item.state">Commande livrée</span>
     </div>
     <div class="panel-body">
-        <p>Nom du client : {{ item.name | uppercase }}</p>
+        <p>Nom du client : <span Highlight>{{ item.name | uppercase }}</span></p>
 
         <div *ngIf="2 !== item.state">
             Changer le statut : <a href (click)="changeState($event, 1)" *ngIf="2 !== item.state && 1 !== item.state" data-id="{{ item.reference }}" class="label label-info">En cours de livraison</a>

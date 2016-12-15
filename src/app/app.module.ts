@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { Item as ItemComponent } from './item'
 import { ItemForm } from './item.form'
 import { ItemPipe } from './pipes/item.filter'
+import {HighlightDirective} from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
     ItemForm,
-    ItemPipe
+    ItemPipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
