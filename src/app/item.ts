@@ -10,11 +10,9 @@ import { Item as ItemModel } from './models/item'
 })
 export class Item {
   @Input() item: ItemModel;
-  @Output() onGetDetails = new EventEmitter();
 
-  getDetails(event: Event) {
+  changeState(event: Event, state: number) {
      event.preventDefault();
-
-     this.onGetDetails.emit(this.item);
+     this.item.state = state;
   }
 }

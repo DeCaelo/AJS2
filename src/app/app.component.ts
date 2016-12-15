@@ -18,11 +18,7 @@ export class AppComponent {
     this.collection = Config.FAKE_COLLECTION;
   }
 
-  onGetDetails(item) {
-     console.log(item);
-  }
-
-  onCreateItem(item) {
+  onCreateItem(item: Item) {
     this.collection.push(item);
   }
 }
