@@ -1,23 +1,14 @@
+import { Injectable } from '@angular/core';
 import { Config } from '../config';
 import { Item } from '../models/Item';
+import { CollectionService } from './collection.service';
 
+@Injectable()
 export class ItemService {
   public collection: Item[];
 
-  constructor() {
-      this.setFakeCollection();
-  }
-
-  setFakeCollection(): void {
-    this.collection = [
-        new Item({reference: '1234', name: 'anton', state: 0}),
-        new Item({reference: '5678', name: 'levon', state: 1}),
-        new Item({reference: '9012', name: 'dor', state: 2})
-    ];
-  }
-
-  getCollection(): Item[] {
-    return this.collection;
+  constructor(CollectionService: CollectionService) {
+      this.collection = CollectionService.getCollection();
   }
 
   addItemToCollection(item: Item): ItemService {
