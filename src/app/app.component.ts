@@ -15,14 +15,9 @@ export class AppComponent {
   constructor() {
     this.title = Config.APP_TITLE;
     this.version = Config.APP_VERSION;
-    this.collection = Config.FAKE_COLLECTION;
   }
 
   onCreateItem(item: Item) {
     this.collection.unshift(item);
-
-    setTimeout(() => {
-        item.animateState = 'removed';
-    }, 2000);
   }
 }
