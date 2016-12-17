@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Item } from './models/item';
 import { Config } from './config';
-import { ItemService } from './services/item.service';
 import { CollectionService } from './services/collection.service';
 
 @Component({
@@ -13,16 +12,8 @@ export class AppComponent {
   private title: string;
   private version: string;
   private collection: Item[];
-  private ItemService: ItemService;
 
-  constructor(ItemService: ItemService, CollectionService: CollectionService) {
-    this.title = Config.APP_TITLE;
-    this.version = Config.APP_VERSION;
-    this.ItemService = ItemService;
+  constructor(CollectionService: CollectionService) {
     this.collection = CollectionService.getCollection();
-  }
-
-  onCreateItem(item: Item) {
-    this.ItemService.addItemToCollection(item);
   }
 }

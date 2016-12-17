@@ -1,5 +1,6 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { Item } from './models/item'
+import { Component } from '@angular/core';
+import { Item } from './models/item';
+import { ItemService } from './services/item.service';
 
 @Component({
   selector: 'item-form',
@@ -7,18 +8,19 @@ import { Item } from './models/item'
 })
 export class ItemForm {
   private item: Item;
-  @Output() onCreateItem = new EventEmitter();
+  private ItemService: ItemService;
 
-  constructor() {
+  constructor(ItemService: ItemService) {
+    this.ItemService = ItemService;
     this.resetItem();
   }
 
   resetItem() {
-    this.item = new Item({reference: '', name: '', state: 0});
+    this.item = this.ItemService.createNewItem();
   }
 
   createItem() {
-    this.onCreateItem.emit(this.item);
+    this.ItemService.addItemToCollection(this.item);
     this.resetItem();
   }
 }

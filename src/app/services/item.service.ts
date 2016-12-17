@@ -5,15 +5,17 @@ import { CollectionService } from './collection.service';
 
 @Injectable()
 export class ItemService {
-  public collection: Item[];
+  public CollectionService: CollectionService;
 
   constructor(CollectionService: CollectionService) {
-      this.collection = CollectionService.getCollection();
+      this.CollectionService = CollectionService;
   }
 
-  addItemToCollection(item: Item): ItemService {
-    this.collection.unshift(item);
+  addItemToCollection(item: Item): void {
+    this.CollectionService.addItemToCollection(item);
+  }
 
-    return this;
+  createNewItem(): Item {
+    return new Item({reference: '', name: '', state: 0});
   }
 }

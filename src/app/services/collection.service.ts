@@ -5,11 +5,17 @@ export class CollectionService {
   public collection: Item[];
 
   constructor() {
-      this.collection = [];
+    this.collection = [];
   }
 
   getCollection(): Item[] {
     return this.collection;
+  }
+
+  addItemToCollection(item: Item): CollectionService {
+    this.collection.unshift(item);
+
+    return this;
   }
 }
 
