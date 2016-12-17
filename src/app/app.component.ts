@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { Item } from './models/item';
 import { Config } from './config';
 import { ItemService } from './services/item.service';
-import { CollectionService } from './services/collection.service'
+import { CollectionService } from './services/collection.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [ItemService, CollectionService]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   private title: string;

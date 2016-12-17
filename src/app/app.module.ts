@@ -12,6 +12,9 @@ import { ItemPipe } from './pipes/item.filter'
 import { HighlightDirective } from './directives/highlight.directive';
 import { StateDirective } from './directives/state.directive';
 
+import { ItemService } from './services/item.service';
+import { CollectionService } from './services/collection.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,7 @@ import { StateDirective } from './directives/state.directive';
     HttpModule,
     TitleModule
   ],
-  providers: [],
+  providers: [ItemService, CollectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
