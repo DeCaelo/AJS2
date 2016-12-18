@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+var collection = [];
 
 // Get our API routes
 const api = require('./server/routes/api');
@@ -18,6 +19,13 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
 app.use('/api', api);
+
+/**
+*  HTTP service, AJAX request
+*/
+app.get('/collection', function (req, res){
+  res.json(collection);
+});
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {

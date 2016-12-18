@@ -1,11 +1,15 @@
+import { Injectable } from '@angular/core';
 import { Config } from '../config';
 import { Item } from '../models/Item';
+import { Http } from '@angular/http';
 
+@Injectable()
 export class CollectionService {
-  public collection: Item[];
+  private Http: Http;
 
-  constructor() {
+  constructor(Http: Http) {
     this.collection = [];
+    this.Http = Http;
   }
 
   getCollection(): Item[] {
