@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Config } from '../config';
-import { Item } from '../models/Item';
-import { Http } from '@angular/http';
+import { Item } from '../models/item';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class CollectionService {
@@ -10,13 +12,15 @@ export class CollectionService {
 
   constructor(Http: Http) {
     this.Http = Http;
-    this.Http.get('/collection').subscribe(response => {
-        this.collection = response.json();
-    });
+
   }
 
-  getCollection(): Item[] {
-    return this.collection;
+  getCollection(): Observable<Item[]> {
+    return this.Http.get('/collection').map(response => {
+      this.collection = response.json();
+
+     return this.collection;
+    });
   }
 
   addItemToCollection(item: Item): CollectionService {

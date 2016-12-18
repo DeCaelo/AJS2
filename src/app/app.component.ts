@@ -14,6 +14,8 @@ export class AppComponent {
   private collection: Item[];
 
   constructor(CollectionService: CollectionService) {
-    this.collection = CollectionService.getCollection();
+    CollectionService.getCollection().subscribe(collection => {
+      this.collection = collection;
+    });
   }
 }
