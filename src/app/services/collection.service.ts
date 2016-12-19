@@ -20,7 +20,7 @@ export class CollectionService {
      *
      */
     getCollection(): any {
-        this.Http.get('/collection').map(response => {
+        this.Http.get(Config.API_ROUTES.collection).map(response => {
             this.collection = response.json();
             this.updateCollection();
         }).subscribe();
@@ -30,7 +30,7 @@ export class CollectionService {
      *
      */
     addItemToCollection(item: Item): any {
-        this.Http.post('/collection', item).map(response => {
+        this.Http.post(Config.API_ROUTES.collection, item).map(response => {
             this.collection = response.json();
             this.updateCollection();
         }).subscribe();
