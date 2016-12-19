@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Config } from '../config';
 import { Item } from '../models/Item';
 import { CollectionService } from './collection.service';
+import { Observable }  from 'rxjs/Observable';
 
 @Injectable()
 export class ItemService {
@@ -11,7 +12,7 @@ export class ItemService {
       this.CollectionService = CollectionService;
   }
 
-  addItemToCollection(item: Item): void {
+  addItemToCollection(item: Item): any {
     this.CollectionService.addItemToCollection(item);
   }
 

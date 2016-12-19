@@ -21,9 +21,19 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/api', api);
 
 /**
-*  HTTP service, AJAX request
+*  HTTP service, AJAX request; get collection
 */
 app.get('/collection', function (req, res){
+  res.json(collection);
+});
+
+/**
+*  add collection
+*/
+app.post('/collection', function (req, res){
+  var item = req.body;
+  collection.unshift(item);
+
   res.json(collection);
 });
 
