@@ -14,6 +14,7 @@ import { StateDirective } from './directives/state.directive';
 
 import { ItemService } from './services/item.service';
 import { CollectionService } from './services/collection.service';
+import { SocketService } from './services/socket.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { CollectionService } from './services/collection.service';
     HttpModule,
     TitleModule
   ],
-  providers: [ItemService, CollectionService],
+  providers: [ItemService, CollectionService, SocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
